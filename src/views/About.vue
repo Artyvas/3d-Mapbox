@@ -49,7 +49,7 @@ export default {
       mapboxgl.accessToken = process.env.VUE_APP_MY_API_KEY;
         var map = new mapboxgl.Map({
           container: 'map', // container id
-          style: 'mapbox://styles/mapbox/satellite-v9', // style URL
+          style: 'mapbox://styles/mapbox/satellite-streets-v11', // style URL
           center: [this.places[0].lng, this.places[0].lat], // starting position [lng, lat]
           zoom: 8.5, // starting zoom
           pitch: 85,
@@ -74,9 +74,9 @@ export default {
                       'source-layer': 'building',
                       'filter': ['==', 'extrude', 'true'],
                       'type': 'fill-extrusion',
-                      'minzoom': 15,
+                      'minzoom': 8,
                       'paint': {
-                      'fill-extrusion-color': '#aaa',
+                      'fill-extrusion-color': '#345eeb',
 
                       // use an 'interpolate' expression to add a smooth transition effect to the
                       // buildings as the user zooms in
@@ -84,21 +84,21 @@ export default {
                       'interpolate',
                       ['linear'],
                       ['zoom'],
-                      15,
+                      1,
                       0,
-                      15.05,
+                      1.05,
                       ['get', 'height']
                       ],
                       'fill-extrusion-base': [
                       'interpolate',
                       ['linear'],
                       ['zoom'],
-                      15,
+                      1,
                       0,
-                      15.05,
+                      1.05,
                       ['get', 'min_height']
                       ],
-                      'fill-extrusion-opacity': 0.6
+                      'fill-extrusion-opacity': 1.0
                       }
                       },
                 labelLayerId
